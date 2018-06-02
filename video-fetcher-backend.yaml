@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: videofetcher
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: videofetcher
+        tier: worker
+    spec:
+      containers:
+      - name: cxnet-videofetcher
+        image: gcr.io/cx-network-204116/videofetcher
+        imagePullPolicy: Always
